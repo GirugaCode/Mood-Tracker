@@ -14,15 +14,27 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func pressAddEntry(_ sender: UIBarButtonItem) {
-        let now = Date()
-        let newMood = MoodEntry(mood: .amazing, date: now)
-        entries.insert(newMood, at: 0)
-        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        
-        
-        
+    @IBAction func unwindToHome(_ segue: UIStoryboardSegue) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        guard let detailedEntryViewController = segue.source as? MoodDetailedViewController else {
+            return print("storyboard unwind segue not set up correctly")
+        }
+        switch identifier {
+        case "unwind from save":
+            if detailedEntryViewController.isEditingEntry {
+                print("from save button and editing and exsisting entry")
+            } else {
+                print("from save button and adding a new entry")
+            }
+        case "unwind from cancel":
+            print("from cancel button")
+        default:
+            break
+        }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,6 +53,15 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
+            case "show new entry":
+                guard let entryDetailsViewController = segue.destination as? MoodDetailedViewController else{
+                    
+                    //Error handling
+                    return print("storyboard not set up correctly, 'show entry details' segue needs to segue to a 'MoodDetailedViewController'")
+                }
+                
+                entryDetailsViewController.mood = MoodEntry.Mood.none
+                entryDetailsViewController.date = Date()
             case "show entry details":
                 guard
                     let selectedCell = sender as? UITableViewCell,
