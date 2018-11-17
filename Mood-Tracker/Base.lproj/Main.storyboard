@@ -66,6 +66,7 @@
                                             <outlet property="imageViewMoodColor" destination="jXk-fa-21f" id="jgX-hs-sTP"/>
                                             <outlet property="labelMoodDate" destination="mVu-aT-8xa" id="N3F-iU-1S9"/>
                                             <outlet property="labelMoodTitle" destination="NZb-bu-oSK" id="bAM-kc-DNR"/>
+                                            <segue destination="yY5-te-bOH" kind="show" id="rjf-Y9-A8w"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -93,7 +94,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.2" y="136.69950738916256"/>
+            <point key="canvasLocation" x="934" y="137"/>
+        </scene>
+        <!--Mood Detailed View Controller-->
+        <scene sceneID="4YL-xk-xai">
+            <objects>
+                <viewController id="yY5-te-bOH" customClass="MoodDetailedViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Kj-gM-DJX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Lzu-hC-A1f"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xfW-95-Qmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1689" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PEE-Cu-N6w">

@@ -14,6 +14,7 @@
 		2820D81D2194F27100BC8FE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2820D81B2194F27100BC8FE7 /* LaunchScreen.storyboard */; };
 		2820D8272194F4F200BC8FE7 /* MoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2820D8262194F4F200BC8FE7 /* MoodEntry.swift */; };
 		2853D368219B514F005E8677 /* MoodEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2853D367219B514F005E8677 /* MoodEntryTableViewCell.swift */; };
+		288D0FC6219FA282007A2751 /* MoodDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288D0FC5219FA282007A2751 /* MoodDetailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2820D81E2194F27100BC8FE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2820D8262194F4F200BC8FE7 /* MoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntry.swift; sourceTree = "<group>"; };
 		2853D367219B514F005E8677 /* MoodEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntryTableViewCell.swift; sourceTree = "<group>"; };
+		288D0FC5219FA282007A2751 /* MoodDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDetailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				2820D8262194F4F200BC8FE7 /* MoodEntry.swift */,
 				2820D8142194F27000BC8FE7 /* ViewController.swift */,
 				2853D367219B514F005E8677 /* MoodEntryTableViewCell.swift */,
+				288D0FC5219FA282007A2751 /* MoodDetailedViewController.swift */,
 				2820D8162194F27000BC8FE7 /* Main.storyboard */,
 				2820D8192194F27100BC8FE7 /* Assets.xcassets */,
 				2820D81B2194F27100BC8FE7 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2820D8152194F27000BC8FE7 /* ViewController.swift in Sources */,
+				288D0FC6219FA282007A2751 /* MoodDetailedViewController.swift in Sources */,
 				2820D8272194F4F200BC8FE7 /* MoodEntry.swift in Sources */,
 				2820D8132194F27000BC8FE7 /* AppDelegate.swift in Sources */,
 				2853D368219B514F005E8677 /* MoodEntryTableViewCell.swift in Sources */,
