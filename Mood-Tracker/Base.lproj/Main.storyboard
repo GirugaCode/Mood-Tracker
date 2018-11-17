@@ -82,6 +82,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ELp-XX-hiY">
+                        <barButtonItem key="leftBarButtonItem" title="Calendar" id="14J-lt-qs1">
+                            <connections>
+                                <action selector="pressCalendar:" destination="BYZ-38-t0r" id="Ysq-lT-w7d"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="J8M-Ur-thP">
                             <connections>
                                 <segue destination="yY5-te-bOH" kind="show" identifier="show new entry" id="Nkm-Vz-IpM"/>
@@ -95,6 +100,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934" y="137"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="wYa-ms-vTk">
+            <objects>
+                <viewController storyboardIdentifier="calendar vc" id="4vb-gq-B1t" customClass="CalendarViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ebn-8H-jdG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oT3-dn-jY5">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="pressDone:" destination="4vb-gq-B1t" eventType="touchUpInside" id="Icy-bP-EC6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="E8a-Xp-Aex" firstAttribute="trailing" secondItem="oT3-dn-jY5" secondAttribute="trailing" id="HCL-gZ-gtH"/>
+                            <constraint firstItem="oT3-dn-jY5" firstAttribute="leading" secondItem="E8a-Xp-Aex" secondAttribute="leading" id="iGy-vu-N1I"/>
+                            <constraint firstItem="E8a-Xp-Aex" firstAttribute="bottom" secondItem="oT3-dn-jY5" secondAttribute="bottom" id="iUi-2l-rL6"/>
+                            <constraint firstItem="oT3-dn-jY5" firstAttribute="top" secondItem="E8a-Xp-Aex" secondAttribute="top" id="mP0-UM-K7n"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="E8a-Xp-Aex"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jw2-WA-wAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="786"/>
         </scene>
         <!--Details-->
         <scene sceneID="4YL-xk-xai">

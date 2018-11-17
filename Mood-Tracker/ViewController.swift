@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     var entries: [MoodEntry] = []
 
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func pressCalendar(_ sender: UIBarButtonItem) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let calendarVc = mainStoryboard.instantiateViewController(withIdentifier: "calendar vc") as? CalendarViewController else {
+            return print("storyboard not set up correctly, check the identity of \"calendar vc\"")
+        }
+        present(calendarVc, animated: true, completion: nil)
+    }
     
     @IBAction func unwindToHome(_ segue: UIStoryboardSegue) {
         guard let identifier = segue.identifier else {
@@ -23,10 +30,15 @@ class ViewController: UIViewController {
         }
         switch identifier {
         case "unwind from save":
+            let newMood: MoodEntry.Mood = detailedEntryViewController.mood
+            let newDate: Date = detailedEntryViewController.date
             if detailedEntryViewController.isEditingEntry {
-                print("from save button and editing and exsisting entry")
+                guard let selectedIndexPath = tableView.indexPathForSelectedRow else {
+                    return
+                }
+                updateEntry(mood: newMood, date: newDate, index: selectedIndexPath.row)
             } else {
-                print("from save button and adding a new entry")
+                createEntry(mood: newMood, date: newDate)
             }
         case "unwind from cancel":
             print("from cancel button")
@@ -47,7 +59,32 @@ class ViewController: UIViewController {
         let neutralEntry = MoodEntry(mood: .neutral, date: Date())
         
         entries = [goodEntry, badEntry, neutralEntry]
-                  tableView.reloadData()
+        tableView.reloadData()
+    }
+    
+    func createEntry(mood: MoodEntry.Mood, date: Date) {
+        let newEntry = MoodEntry(mood: mood, date: date)
+        entries.insert(newEntry, at: 0)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+    }
+    
+    func updateEntry(mood: MoodEntry.Mood, date: Date, index: Int) {
+        entries[index].mood = mood
+        entries[index].date = date
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+    
+    func deleteEntry(at index: Int) {
+        entries.remove(at: index)
+        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,6 +113,7 @@ class ViewController: UIViewController {
                 let entry = entries[indexPath.row]
                 entryDetailsViewController.mood = entry.mood
                 entryDetailsViewController.date = entry.date
+                entryDetailsViewController.isEditingEntry = true
                 
             default: break
             }
@@ -92,16 +130,23 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mood entry cell", for: indexPath) as! MoodEntryTableViewCell
         
         let entry = entries[indexPath.row]
-        cell.labelMoodTitle.text = entry.mood.stringValue
-        cell.imageViewMoodColor.backgroundColor = entry.mood.colorValue
-        cell.labelMoodDate.text = String(describing: entry.date)
-        
+        cell.configure(entry)
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedEntry = entries[indexPath.row]
         print("Selected mood was \(selectedEntry.mood.stringValue)")
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            deleteEntry(at: indexPath.row)
+        default:
+            break
+        }
     }
 }
 
