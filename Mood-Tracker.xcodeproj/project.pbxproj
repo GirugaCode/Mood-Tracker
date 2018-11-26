@@ -64,19 +64,43 @@
 		2820D8112194F27000BC8FE7 /* Mood-Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				2895261C21AB88D100BDF561 /* Model */,
+				2895261D21AB896E00BDF561 /* View */,
+				2895261B21AB88A800BDF561 /* Controller */,
 				2820D8122194F27000BC8FE7 /* AppDelegate.swift */,
-				2820D8262194F4F200BC8FE7 /* MoodEntry.swift */,
-				2820D8142194F27000BC8FE7 /* ViewController.swift */,
-				2853D367219B514F005E8677 /* MoodEntryTableViewCell.swift */,
-				288D0FC5219FA282007A2751 /* MoodDetailedViewController.swift */,
-				28B62ACC219FE2A9007A10E1 /* CalendarViewController.swift */,
-				28B62ACE219FF3B0007A10E1 /* Date+String.swift */,
 				2820D8162194F27000BC8FE7 /* Main.storyboard */,
 				2820D8192194F27100BC8FE7 /* Assets.xcassets */,
 				2820D81B2194F27100BC8FE7 /* LaunchScreen.storyboard */,
 				2820D81E2194F27100BC8FE7 /* Info.plist */,
 			);
 			path = "Mood-Tracker";
+			sourceTree = "<group>";
+		};
+		2895261B21AB88A800BDF561 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2820D8142194F27000BC8FE7 /* ViewController.swift */,
+				288D0FC5219FA282007A2751 /* MoodDetailedViewController.swift */,
+				28B62ACC219FE2A9007A10E1 /* CalendarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2895261C21AB88D100BDF561 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2820D8262194F4F200BC8FE7 /* MoodEntry.swift */,
+				28B62ACE219FF3B0007A10E1 /* Date+String.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2895261D21AB896E00BDF561 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2853D367219B514F005E8677 /* MoodEntryTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
